@@ -1,0 +1,23 @@
+{
+  "name": "socialburst",
+  "version": "1.0.0",
+  "description": "where your social media meet",
+  "main": "app.js",
+  "scripts": {
+    "test": "testapp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ragehills/SocialBurst.git"
+  },
+  "keywords": [
+    "social",
+    "media"
+  ],
+  "author": "Rage Hills",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ragehills/SocialBurst/issues"
+  },
+  "homepage": "https://github.com/ragehills/SocialBurst#readme"
+}
