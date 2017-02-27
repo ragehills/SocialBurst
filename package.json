@@ -1,0 +1,39 @@
+{
+  "name": "socialburst",
+  "version": "1.0.0",
+  "description": "where your social media meet",
+  "main": "app.js",
+  "scripts": {
+    "test": "testapp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ragehills/SocialBurst.git"
+  },
+  "keywords": [
+    "social",
+    "media"
+  ],
+  "author": "Rage Hills",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "express-ejs-layouts": "^2.2.0",
+    "express-session": "^1.15.1",
+    "masonry-layout": "^4.1.1",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ragehills/SocialBurst/issues"
+  },
+  "homepage": "https://github.com/ragehills/SocialBurst#readme"
+}
