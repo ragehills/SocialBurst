@@ -10,7 +10,7 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
 			url: '/',
 			templateUrl: '/states/page1.html'
 		})
-		.state('new', {
+		.state('page2', {
 			url: '/page2',
 			templateUrl: '/states/page2.html'
 		})
