@@ -28,6 +28,10 @@
     "method-override": "^2.3.7",
     "mongoose": "^4.8.3"
   },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
+  },
   "bugs": {
     "url": "https://github.com/ragehills/SocialBurst/issues"
   },
