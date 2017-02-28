@@ -11,9 +11,10 @@
   	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
 	<script type="text/javascript" src="../frontApp.js"></script>
-	<script type="text/javascript" src="../js/factories/auth.fact.js"></script>
-  	<script src="../js/controllers/auth.ctrl.js"></script>
-	<script type="text/javascript" src="../js/controllers/main.ctrl.js"></script>
+	<script type="text/javascript" src="js/factories/auth.fact.js"></script>
+	<script type="text/javascript" src="js/factories/user.fact.js"></script>
+  	<script src="js/controllers/auth.ctrl.js"></script>
+	<script type="text/javascript" src="js/controllers/main.ctrl.js"></script>
 
 	<meta charset="utf-8">
 	<title>SocialBURST</title>
@@ -21,38 +22,33 @@
 <body ng-controller="authenticationController as auth">
 	<nav>
 		<div class="wrapper">
-			<span class="square">
+			<span class="square" ng-if="auth.user">
 	  			<span>
 					<a class="tenth before after" ui-sref-active="currentState" ui-sref="home">Home</a>
 				</span>
 				<span>
 					<a class="tenth before after" ui-sref-active="currentState" ui-sref="page2">page 2</a>
 				</span>
+				<span class="userWidget headerElement">
+					<a class="tenth before after" ng-click="auth.signOut()">Sign Out</a>
+				</span>
+			</span>
+		</div>
+		<div class="wrapper">
+			<span class="square" ng-if="!auth.user">
+	  			<span class="userWidget headerElement">
+					<a chref="#" ui-sref="login">Log In</a>
+				</span>
+				<span class="userWidget headerElement">
+					<a href="#" ui-sref="signup">Sign Up</a>
+				</span>
 			</span>
 		</div>
 	</nav>
 
-	<section class="userWidget headerElement">
-	    <div ng-if="auth.user">
-	      <strong>Welcome {{ auth.user.email }}</strong>
-	      <br>
-	      <a href="#" ng-click="auth.signOut()">Click Here</a>to sign out.
-	    </div>
-
-	    <div ng-if="!auth.user">
-			<strong>Welcome new person!</strong>  
-			<br>
-	        <a href="#" ui-sref="login">Click Here</a> To Login!
-	        <br>    
-	        <a href="#" ui-sref="signup">Click Here</a> To Sign Up!    
-	    </div>
-  	</section>
-
 	<section class="mainContainer" ui-view ng-controller="MainController as main">
 	
 	</section>
-
-	{{4+4}}
 
 </body>
 </html>

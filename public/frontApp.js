@@ -1,6 +1,7 @@
 angular
-	.module('social-burst', ['ui.router', 'firebase'])
+	.module('social-burst', ["ui.router", 'firebase'])
 	.config(MainRouter)
+	.constant('API', '/api')
 	.run(AuthCatcher)
 
 function AuthCatcher ($rootScope, $state) {
@@ -18,31 +19,27 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
     }
   }
 
-	function MainRouter ($stateProvider, $urlRouterProvider) {
-		$stateProvider
-			.state('home', {
-				url: '/',
-				templateUrl: '/states/page1.html'
-				
-			})
-			.state('page2', {
-				url: '/page2',
-				templateUrl: '/states/page2.html'
-				resolve: authRequired
-			})
-			.state('signup', {
-      			url: '/signup',
-      			templateUrl: '/states/signup.html',
-    		})
-		    .state('login', {
-			    url: '/login',
-			    templateUrl: '/states/login.html',
-		    })
-		    .state('authRequired', {
-      			url: '/authRequired',
-      			templateUrl: '/states/authRequired.html',
-    		})
-
-			$urlRouterProvider.otherwise('/')
-
-}    
+	$stateProvider
+		.state('home', {
+			url: '/',
+			templateUrl: 'states/page1.html',
+			
+		})
+		.state('page2', {
+			url: '/page2',
+			templateUrl: 'states/page2.html',
+			resolve: authRequired,
+		})
+		.state('signup', {
+				url: '/signup',
+				templateUrl: 'states/signup.html',
+		})
+	    .state('login', {
+		    url: '/login',
+		    templateUrl: 'states/login.html',
+	    })
+	    .state('authRequired', {
+				url: '/authRequired',
+				templateUrl: 'states/authRequired.html',
+		})
+}   

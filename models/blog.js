@@ -1,14 +1,10 @@
 var mongoose = require('mongoose');
 
 var BlogSchema = mongoose.Schema({
-	title: {
-	    type: String,
-	    required: true
-	},
-	content: {
-	    type: String,
-		required: true
-	}
+	title: String,
+	link: String,
+	upvotes: {type: Number, default: 0},
+	comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 });
  
 module.exports = mongoose.model('Blog', BlogSchema);

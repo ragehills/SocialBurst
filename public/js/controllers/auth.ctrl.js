@@ -2,28 +2,34 @@ angular
 	.module('social-burst')
 	.controller('authenticationController', authenticationController)
 
-function authenticationController(Auth, $state) {
+function authenticationController(Auth, User, $state) {
 	var self = this
+
+	self.createUser = function () {
+		Auth.$createUserWithEmailAndPassword(self.email, self.password)
+			.then(function (user) {
+				User.create({
+					uid: user.uid,
+				}).then(function(user, error) {
+					resetCredentials()
+				}).catch(function (err) {
+					console.log(err)
+				})
+
+			}).catch(function (error) {
+				self.error = error 
+			})
+	}
 
 	self.signIn = function() {
 		Auth.$signInWithEmailAndPassword(self.email, self.password)
 			.then(function () {
-				$state.go('home')
+				$state.go('page2')
 				resetCredentials()
 			})
 			.catch(function (error) {
 				self.error = error 
 
-			})
-	}
-
-	self.createUser = function () {
-		Auth.$createUserWithEmailAndPassword(self.email, self.password)
-			.then(function (user) {
-				resetCredentials()
-				console.log(user)
-			}).catch(function (error) {
-				self.error = error 
 			})
 	}
 
@@ -33,7 +39,6 @@ function authenticationController(Auth, $state) {
 	}
 
 	Auth.$onAuthStateChanged(function (user) {
-		console.log(user)
 		self.user = user
 	})
 
