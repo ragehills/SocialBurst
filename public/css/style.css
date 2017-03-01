@@ -1,3 +1,128 @@
+html {
+  background: white;
+}
+
+nav ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+nav a {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding: .5em 1em;
+    text-decoration: none;
+    color: black;
+}
+
+// =================================== Quarantined Small Constraint Styling
+
+@media screen and (max-width:48.124em) {
+    #jump {
+        background: rgba(0, 0, 0, 0);
+        border-width: 0 0 1px 1px;
+        cursor: pointer;
+        display: block;
+        padding: 0;
+        height: 53px;
+        width: 53px;
+        //text-indent: -999em;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        font-size: 3em;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+    }
+    
+    
+    body:not(:target) #nav {
+        margin: 0;
+        padding-top: 55px;
+        padding-left: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0);
+    }
+    
+    // This block is super important for hiding
+    // the nav items list
+    body:not(:target) #nav a {
+        background: rgba(255,255,255,.15);
+        border-bottom-width: 0;
+        font-weight: bold;
+        overflow: hidden;
+        height: 0;
+        line-height: 0;
+        padding: 0 1em;
+    }
+
+    body:not(:target) #nav:target {
+        z-index: 2;
+    }
+    
+    // This line is super important for showing
+    // the nav items list
+    body:not(:target) #nav:target a {
+        border-bottom-width: 1px;
+        line-height: 3em;
+        height: 3em;
+        position: relative;
+        z-index: 1;
+        -webkit-transition: height .25s, line-height .25s;
+    }
+
+    body:not(:target) #nav:target #back {
+        display: block;
+        position: relative;
+    }
+
+    body:not(:target) #nav:target #back a {
+        background: transparent;
+        border: 0;
+        display: block;
+        height: auto;
+        line-height: 1;
+        position: absolute;
+        top: -101em;
+        bottom: -101em;
+        left: 0;
+        right: 0;
+        text-indent: -999em;
+        z-index: 0;
+    }
+}
+
+
+// =================================== Larger Styling
+
+@media screen and (min-width:48.125em) {
+    #nav-page,
+    header {
+      max-width: 60em;
+      margin: 0 auto;
+    }
+  
+    #jump {
+      position: absolute;
+      left: -9999em;
+    }
+    #nav {
+      text-align: center;
+     }
+    #nav > li {
+      display: inline-block;
+    }
+    #nav > a {
+      border-bottom: none;
+    }
+}
+
 .form {
   outline:none;
   border:none;

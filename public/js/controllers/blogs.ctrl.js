@@ -9,12 +9,12 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
 
     self.createBlog = function() {
         Blog.create({
-                uid: Auth.$getAuth().uid,
-                blog: {
-                    title: self.newBlog.title,
-                    url: self.newBlog.url,
-                    post: self.newBlog.post
-                }
+            uid: Auth.$getAuth().uid,
+            blog: {
+                title: self.newBlog.title,
+                url: self.newBlog.url,
+                post: self.newBlog.post
+            }
         }).then(function (blog) {
             console.log(blog)
             self.newBlog = {}
@@ -27,7 +27,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
     }
 
     self.showBlog = function() {
-        Blog.getAll()
+        Blog.get()
         .then(function(res) {
             self.all = res.data.blogs
             // console.log(self.all)
@@ -39,11 +39,12 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
     }
 
     self.indexBlogs = function () {
+        console.log("tis working")
         var uid = Auth.$getAuth().uid
-        Blog.indexBlogs(uid)
+        Blog.getAll(uid)
         .then(function(res) {
-            console.log(res)
-            self.all = res.data.blog
+            console.log(res.data)
+            self.all = res.data
         })
         .catch(function (err) {
             console.log(err)
