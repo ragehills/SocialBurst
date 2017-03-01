@@ -2,7 +2,7 @@ var Blog = require('../models/blog.js');
 var Comment = require('../models/Comments.js');
 
 function indexBlogs(req, res) {
-	User.findOne({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
+	Blog.findOne({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
         if (err) {
             console.log(err)
             return res.status(500).json(err)
@@ -33,8 +33,13 @@ function createBlogs(req, res) {
 
         newBlog.save(function (err) { if (err) console.log(err) });
         user.save(function (err) { if (err) console.log(err) });
+        res.redirect("/")
 
     })
+}
+
+function newBlog(req, res) {
+    res.send('new');
 }
 
 function editBlogs(req, res) {
@@ -70,7 +75,7 @@ function deleteBlogs(req, res) {
 module.exports = {
 	index: indexBlogs,
 	show: showBlogs,
-	// new: newBlogs,
+	new: newBlog,
 	create: createBlogs,
 	edit: editBlogs,
 	update: updateBlogs,

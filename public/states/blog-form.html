@@ -1,0 +1,13 @@
+<section ng-if="auth.user" ng-controller="BlogsController as blog">
+	<h1>new blog</h1>
+	<form ng-submit="blog.createBlog()">
+		<div>
+			Title: <input type="text" name="title" placeholder="Title" value="{{ blog.title }}" ng-model="blog.newBlog.title">
+		</div>
+		<div>
+			Post: <textarea type="text" rows="5" id="comment" name="post" placeholder="Start writting...." ng-model="blog.newBlog.post">{{ blog.post }}</textarea>
+		</div>
+
+		<button class="myButton" type="submit" >Send</button>
+	</form>
+</section>

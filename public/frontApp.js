@@ -35,6 +35,11 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
 			templateUrl: 'states/my-blogs.html',
 			resolve: authRequired,
 		})
+		.state('blog-form', {
+			url: '/blog-form',
+			templateUrl: 'states/blog-form.html',
+			resolve: authRequired,
+		})
 		.state('twitter', {
 			url: '/twitter',
 			templateUrl: 'states/twitter.html',
