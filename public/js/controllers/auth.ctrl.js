@@ -24,7 +24,7 @@ function authenticationController(Auth, User, $state) {
 	self.signIn = function() {
 		Auth.$signInWithEmailAndPassword(self.email, self.password)
 			.then(function () {
-				$state.go('page2')
+				$state.go('home')
 				resetCredentials()
 			})
 			.catch(function (error) {
@@ -35,7 +35,7 @@ function authenticationController(Auth, User, $state) {
 
 	self.signOut = function() {
 		Auth.$signOut()
-		$state.go('home')
+		$state.go('login')
 	}
 
 	Auth.$onAuthStateChanged(function (user) {

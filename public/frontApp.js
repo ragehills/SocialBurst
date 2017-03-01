@@ -30,6 +30,16 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
 			templateUrl: 'states/page2.html',
 			resolve: authRequired,
 		})
+		.state('my-blogs', {
+			url: '/my-blogs',
+			templateUrl: 'states/my-blogs.html',
+			resolve: authRequired,
+		})
+		.state('twitter', {
+			url: '/twitter',
+			templateUrl: 'states/twitter.html',
+			resolve: authRequired,
+		})
 		.state('signup', {
 				url: '/signup',
 				templateUrl: 'states/signup.html',
@@ -39,7 +49,7 @@ function MainRouter ($stateProvider, $urlRouterProvider) {
 		    templateUrl: 'states/login.html',
 	    })
 	    .state('authRequired', {
-				url: '/authRequired',
-				templateUrl: 'states/authRequired.html',
+			url: '/authRequired',
+			templateUrl: 'states/authRequired.html',
 		})
 }   

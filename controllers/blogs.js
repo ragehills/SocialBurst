@@ -2,17 +2,20 @@ var Blog = require('../models/blog.js');
 var Comment = require('../models/Comments.js');
 
 function indexBlogs(req, res) {
-	Blog.find({} , function(err, blogs) {
-		if(err) return res.status(500).send(err);
-		res.json(blogs);
-	});
+	User.findOne({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
+        if (err) {
+            console.log(err)
+            return res.status(500).json(err)
+        }
+        res.json(blog)
+    })
 }
 
 function showBlogs(req, res) {
-	Recipe.findById(req.params.id , function(err, blog) {
+	Blog.findById(req.params.id , function(err, blog) {
 		if(!blog) return res.status(404).send("Sorry Blog not found!");
 		if(err) return res.status(500).send(err);
-		res.json("blogs/show" , {
+		res.json(blog , {
       		title: "Blog",
     		blog: blog
     	});
@@ -20,19 +23,25 @@ function showBlogs(req, res) {
 }
 
 function createBlogs(req, res) {
-	Blog.create(req.body, function(err, blog) {
-		if(err) req.flash('error' , "Sorry, something went wrong with posting your blog please try again!");
-		User.findByIdAndUpdate(req.user.id, { $addToSet: { blogs: blog } }, function(err, user) {
-			if(err) req.flash('error' , "Sorry, something went wrong with posting your blog please try again!");
-			res.json(blog);
-		})
-	});
+	console.log(req.body)
+    User.findOne({ uid: req.body.uid }, function (err, blog ) {
+        if (err) return res.status(500).json(err)
+
+        var newBlog = new Blog(req.body.blog)
+    	// console.log(user)
+        user.blog.push(newBlog._id)
+
+        newBlog.save(function (err) { if (err) console.log(err) });
+        user.save(function (err) { if (err) console.log(err) });
+
+    })
 }
+
 function editBlogs(req, res) {
 	Blog.findById(req.params.id , function(err, blog) {
 		if(!blog) return res.status(404).send("Sorry blog not found!");
 		if(err) return res.status(500).send(err);
-		res.render("blogs/edit" , {
+		res.json(blog , {
       		title: "Blog",
     		blog: blog
     	});
@@ -44,15 +53,15 @@ function updateBlogs(req, res) {
 		req.params.id,
 		{ $set: req.body },
 		{ runValidators: true },
-		function(err, recipe) {
+		function(err, blog) {
 			if(err) return res.status(500).send(err);
 			res.redirect("/");
 		}
 	);
 }
 
-function deleteRecipes(req, res) {
-	Recipe.findByIdAndRemove(req.params.id , function(err) {
+function deleteBlogs(req, res) {
+	Blog.findByIdAndRemove(req.params.id , function(err) {
 		res.redirect("/")
 	});
 }
@@ -61,7 +70,7 @@ function deleteRecipes(req, res) {
 module.exports = {
 	index: indexBlogs,
 	show: showBlogs,
-	new: newBlogs,
+	// new: newBlogs,
 	create: createBlogs,
 	edit: editBlogs,
 	update: updateBlogs,

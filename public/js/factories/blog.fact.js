@@ -8,13 +8,13 @@ function blogFactory(API, $http) {
 			return $http.get(API + '/blogs')
 		},
 		get: function (id) {
-			return $http.get(API + '/blogs/' + id)
+			return $http.get(API + '/blogs/' + uid)
 		},
 		create: function (newBlog) {
 			return $http.post(API + '/blogs', newBlog)
 		},
 		delete: function (id) {
-			return $http.delete(API + '/blogs/' + id)
+			return $http.delete(API + '/blogs/' + uid)
 		}
 	}
 }
