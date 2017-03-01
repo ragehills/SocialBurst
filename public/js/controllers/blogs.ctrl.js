@@ -12,6 +12,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
                 uid: Auth.$getAuth().uid,
                 blog: {
                     title: self.newBlog.title,
+                    url: self.newBlog.url,
                     post: self.newBlog.post
                 }
         }).then(function (blog) {
@@ -52,6 +53,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
 
     function resetBlog () {
         self.title = ""
+        self.url = ""
         self.post = ""
     }
 
