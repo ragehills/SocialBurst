@@ -27,9 +27,10 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
     }
 
     self.showBlog = function() {
-        Blog.get()
+        Blog.getAll()
         .then(function(res) {
-            self.all = res.data.blogs
+            console.log(res.data)
+            self.all = res.data
             // console.log(self.all)
         })
         .catch(function(err) {
@@ -41,14 +42,14 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
     self.indexBlogs = function () {
         console.log("tis working")
         var uid = Auth.$getAuth().uid
-        Blog.getAll(uid)
-        .then(function(res) {
-            console.log(res.data)
-            self.all = res.data
-        })
-        .catch(function (err) {
-            console.log(err)
-        })
+        Blog.getMyBlogs(uid)
+            .then(function(res) {
+                console.log(res.data)
+                self.all = res.data
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
         
     }
 

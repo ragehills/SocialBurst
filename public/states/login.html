@@ -1,19 +1,21 @@
-<section ng-if="!auth.user">
-	<div>
-		Email: <input type="text" ng-model='auth.email'>
-	</div>
-	<div>
-		Password: <input type="password" ng-model='auth.password'>
-	</div>
+<section ng-if="!auth.user" id="login">
+	<form class="loginform">
+		<div>
+			<input class="input" type="text" ng-model='auth.email' placeholder="Email">
+		</div>
+		<div class="spacer"></div>
+		<div>
+			<input class="input" type="password" ng-model='auth.password' placeholder="Password">
+		</div>
 
-	<br>
+		<br>
 
-	<button class="myButton" ng-click="auth.signIn()">Log In</button>
-
+		<button class="input" ng-click="auth.signIn()">Login</button>
+	</form>
 	<p ng-if="auth.error">
-		Error:	<strong>{{ auth.error }}</strong>
+		<strong>{{ auth.error.message }}</strong>
 	</p>
 </section>
 <section ng-if="auth.user">
-	<h3>Don't be silly, you're already logged in.....</h3>
+	<h3>Click on the home tab</h3>
 </section>

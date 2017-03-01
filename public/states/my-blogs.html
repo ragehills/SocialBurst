@@ -1,8 +1,8 @@
 <h1>My Blogs</h1>
-<section ng-controller="BlogsController as blogs" ng-init="blogs.indexBlogs()" ng-repeat = "blog in blogs.indexblog" >
-	<div class="card">
-	  <a class="a" href="http://www.rte.ie/news/2014/0113/497562-syria-talks/">
-	    <img class="photo"  src="">
+<section ng-controller="BlogsController as blogs" ng-init="blogs.indexBlogs()" >
+	<div class="card" ng-repeat = "blog in blogs.all">
+	  <a class="a" href="">
+	    <img class="photo"  src="{ blog.url }}">
 	    <h3 class="title">{{ blog.title }}</h3>    
 	    <div class="description"><p>{{ blog.post }}</p></div>
 	  </a>

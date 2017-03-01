@@ -4,6 +4,8 @@ var usersController = require('../controllers/users');
 var blogsController = require('../controllers/blogs');
 var commentsController = require('../controllers/comments');
 
+// restuful routes
+
 router.route('/users')
     .post(usersController.create);
 
@@ -20,7 +22,11 @@ router.route('/blogs/:id')
 	.delete(blogsController.delete)
 	// .patch(blogsController.like);
 
+
+
+// custom routes 
+
 router.route('/my-blogs/:uid')
-	.get(blogsController.index);
+	.get(blogsController.getUsersBlogs);
 
 module.exports = router;

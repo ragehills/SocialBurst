@@ -3,7 +3,7 @@ var Comment = require('../models/Comments.js');
 var User = require('../models/user.js');
 
 function indexBlogs(req, res) {
-	Blog.find({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
+	Blog.find({}, function (err, blog) {
         if (err) {
             console.log(err)
             return res.status(500).json(err)
@@ -73,6 +73,17 @@ function deleteBlogs(req, res) {
 }
 
 
+function getUsersBlogs (req, res) {
+	User.findOne({ uid: req.params.uid }).populate('blog').exec(function (err, user) {
+		if (err) {
+			console.log(err)
+			return res.status(500).json(err)
+		}
+
+		res.json(user.blog)
+	})
+} 
+
 module.exports = {
 	index: indexBlogs,
 	show: showBlogs,
@@ -80,5 +91,6 @@ module.exports = {
 	create: createBlogs,
 	edit: editBlogs,
 	update: updateBlogs,
-	delete: deleteBlogs
+	delete: deleteBlogs,
+	getUsersBlogs: getUsersBlogs
 }
