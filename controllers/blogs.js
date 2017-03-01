@@ -1,8 +1,9 @@
 var Blog = require('../models/blog.js');
 var Comment = require('../models/Comments.js');
+var User = require('../models/user.js');
 
 function indexBlogs(req, res) {
-	Blog.findOne({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
+	Blog.find({uid: req.params.uid }).populate('blog').exec(function (err, blog) {
         if (err) {
             console.log(err)
             return res.status(500).json(err)
@@ -24,7 +25,7 @@ function showBlogs(req, res) {
 
 function createBlogs(req, res) {
 	console.log(req.body)
-    User.findOne({ uid: req.body.uid }, function (err, blog ) {
+    User.findOne({ uid: req.body.uid }, function (err, user) {
         if (err) return res.status(500).json(err)
 
         var newBlog = new Blog(req.body.blog)
@@ -33,7 +34,7 @@ function createBlogs(req, res) {
 
         newBlog.save(function (err) { if (err) console.log(err) });
         user.save(function (err) { if (err) console.log(err) });
-        res.redirect("/")
+        res.json(req.body.blog)
 
     })
 }
