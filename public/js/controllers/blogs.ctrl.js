@@ -53,6 +53,10 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
         
     }
 
+    self.showOneBlog = function () {
+        console.log("I can show one for you")
+    }
+
     function resetBlog () {
         self.title = ""
         self.url = ""
