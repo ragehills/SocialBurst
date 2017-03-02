@@ -1,10 +1,9 @@
-<section ng-if="!auth.user" id="login">
+<section class="lssection" ng-if="!auth.user" id="login">
 	<ul class="menu">
 	    <li class="lsli"><a href="" ui-sref="login" class="btn">LOGIN</a></li>
 	    <li class="lsli"><a href="" ui-sref="signup" class="btn">SIGN UP</a></li>
 	</ul>
 	<form class="lsform">
-		<div class="title">Login</div>
 		<div>
 			<input class="ls" type="text" ng-model='auth.email' placeholder="Email">
 		</div>
@@ -14,7 +13,7 @@
 
 		<br>
 
-		<button ng-click="auth.signIn()">Login</button>
+		<button class="button" ng-click="auth.signIn()">Login</button>
 	</form>
 	<p ng-if="auth.error" class="error">
 		<strong>{{ auth.error.message }}</strong>
