@@ -3,9 +3,13 @@ angular
 	.controller('weathercontroller', weathercontroller)
 	
 
-function weathercontroller() {
+function weathercontroller($http) {
 	var self = this;
-	self.test=444;
+	
+	$http.get("http://ip-api.com/json").success(function(data) {
+		self.lat = data.lat;
+		self.lon = data.lon;
+	});
 };
 
 
