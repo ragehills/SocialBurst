@@ -1,13 +1,13 @@
+<section class="weather" ng-controller="weathercontroller as open">
+	{{open.lat}}
+	{{open.lon}}
+	{{open.description}} <img ng-src="{{open.icon}}">
+	{{open.speed}}
+	{{open.name}}
+	{{open.fTemp}}
+	{{open.cTemp}}
+</section>
 <section class="home" ng-controller="BlogsController as blogs" ng-init="blogs.showBlog()" >
-	<section class="weather" ng-controller="weathercontroller as open">
-		{{open.lat}}
-		{{open.lon}}
-		{{open.description}}
-		{{open.speed}}
-		{{open.name}}
-		{{open.fTemp}}
-		{{open.cTemp}}
-	</section>
 	<div class="card" ng-repeat = "blog in blogs.all">
 	  <a class="a" href="">
 	    <img class="photo"  src="{ blog.url }}">

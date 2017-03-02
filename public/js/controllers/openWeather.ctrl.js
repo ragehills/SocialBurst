@@ -20,6 +20,7 @@ function weathercontroller($http) {
 			self.temp = data.main.temp;
 			self.fTemp = (self.temp*(9/5)-459.67).toFixed(1) + " (°F)";
 			self.cTemp = (self.temp-273).toFixed(1) + " (°C)";
+			self.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 		});
 	});
 };
