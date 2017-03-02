@@ -10,7 +10,8 @@ body{
 }
 
 .error{
-  color: #FB3640;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*Nav bar*/
@@ -136,7 +137,8 @@ li:last-child {
 
 /* Test for log in page */
 .lssection {
-  margin: center;
+
+  padding-top: 25vh;
   vertical-align: center;
 }
 
