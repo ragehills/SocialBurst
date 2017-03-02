@@ -21,16 +21,22 @@ function weathercontroller($http) {
 			self.fTemp = (self.temp*(9/5)-459.67).toFixed(1) + " (°F)";
 			self.cTemp = (self.temp-273).toFixed(1) + " (°C)";
 			self.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+			
+			switch(self.description){
+				case "clear sky" : {
+					self.weatherBackground = {
+						"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
+						"background-size": "cover"
+					}
+				break
+				}
+				default:
+					self.weatherBackground = {
+						"background": "url(https://unsplash.com/search/weather?photo=RXceAJAo-nw)",
+						"background-size": "cover"
+					}
+				break	
+			}
 		});
 	});
 };
-
-
-
-
-
-
-
-
-
-

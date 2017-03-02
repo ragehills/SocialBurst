@@ -1,11 +1,11 @@
 <section class="weather" ng-controller="weathercontroller as open">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<div class="home1">
-		<a class="btn-lg btn-primary">{{open.description}} <img ng-src="{{open.icon}}"></a>
+
+	<div class="home1 text-center">
+		<a class="btn-lg btn-primary">{{open.description | uppercase}} <img ng-src="{{open.icon}}"></a>
 		<a class="btn-lg btn-primary">{{open.speed}}</a>
-		<a class="btn-lg btn-primary">{{open.name}}</a>
-		<a class="btn-lg btn-primary">{{open.fTemp}}</a>
-		<a class="btn-lg btn-primary">{{open.cTemp}}</a>
+		<a class="btn-lg btn-primary">{{open.name | uppercase}}</a>
+		<a class="btn-lg btn-primary" ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">{{open.fTemp}}</a>
+		<a class="btn-lg btn-primary" ng-show="!tempVal" ng-click="tempVal=!tempVal">{{open.cTemp}}</a>
 	</div>
 </section>
 <section class="home1" ng-controller="BlogsController as blogs" ng-init="blogs.showBlog()" >

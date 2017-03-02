@@ -335,6 +335,9 @@ li:last-child {
 .home {
   margin-top: 10vw;
 }
+.home1 {
+  margin: 3vw;
+}
 .card {
   max-width: 400px;
   width: 100%;
