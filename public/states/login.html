@@ -1,21 +1,25 @@
 <section ng-if="!auth.user" id="login">
-	<form class="loginform">
+	<ul class="menu">
+	    <li class="lsli"><a href="" ui-sref="login" class="btn">LOGIN</a></li>
+	    <li class="lsli"><a href="" ui-sref="signup" class="btn">SIGN UP</a></li>
+	</ul>
+	<form class="lsform">
+		<div class="title">Login</div>
 		<div>
-			<input class="input" type="text" ng-model='auth.email' placeholder="Email">
+			<input class="ls" type="text" ng-model='auth.email' placeholder="Email">
 		</div>
-		<div class="spacer"></div>
 		<div>
-			<input class="input" type="password" ng-model='auth.password' placeholder="Password">
+			<input class="ls" type="password" ng-model='auth.password' placeholder="Password">
 		</div>
 
 		<br>
 
-		<button class="input" ng-click="auth.signIn()">Login</button>
+		<button ng-click="auth.signIn()">Login</button>
 	</form>
-	<p ng-if="auth.error">
+	<p ng-if="auth.error" class="error">
 		<strong>{{ auth.error.message }}</strong>
 	</p>
 </section>
 <section ng-if="auth.user">
-	<h3>Click on the home tab</h3>
+	<h3>Click on the home tab to see Blogs</h3>
 </section>

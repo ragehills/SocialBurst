@@ -24,29 +24,20 @@
 	<meta charset="utf-8">
 	<title>SocialBURST</title>
 </head>
-
 <body ng-controller="authenticationController as auth">
-	<header>
-		<a id="jump" href="#nav">Ξ</a>
-	</header>
-	<div id="nav">
-		<nav role="navigation">
-			<span class="square" ng-if="auth.user">
-				<ul id="nav" tabindex="0">
-					<li><a ui-sref-active="currentState" ui-sref="home">Home</a></li>
-					<li><a ui-sref-active="currentState" ui-sref="page2">page 2</a></li>
-					<li><a ui-sref-active="currentState" ui-sref="my-blogs">My Blogs</a></li>
-					<li><a ui-sref-active="currentState" ui-sref="blog-form">New Blog</a></li>
-					<li><a ui-sref-active="currentState" ui-sref="twitter">Twitter</a></li>
-					<li><a ng-click="auth.signOut()">Sign Out</a></li>
-				</ul>
-			</span>
-			<span ng-if="!auth.user">
-				<a href="#" ui-sref="login">Log In</a>
-				<a href="#" ui-sref="signup">Sign Up</a>
-			</span>
-		</nav>
-	</div>
+	<nav role="navigation">
+		<span ng-if="auth.user">
+			<ul class="ul">
+				<li class="li" ><a ui-sref-active="currentState" ui-sref="home">Home</a></li>
+				<li class="li" ><a ui-sref-active="currentState" ui-sref="page2">page 2</a></li>
+				<li class="li" ><a ui-sref-active="currentState" ui-sref="my-blogs">My Blogs</a></li>
+				<li class="li" ><a ui-sref-active="currentState" ui-sref="blog-form">New Blog</a></li>
+				<li class="li twitter" ><a ui-sref-active="currentState" ui-sref="twitter">Twitter</a></li>
+				<li class="li signout" ><a ng-click="auth.signOut()">Sign Out</a></li>
+			</ul>
+		</span>
+	</nav>
+
 
 	<section class="mainContainer" ui-view ng-controller="MainController as main">
 	
