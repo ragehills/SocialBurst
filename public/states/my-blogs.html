@@ -1,5 +1,4 @@
-<h1>My Blogs</h1>
-<section ng-controller="BlogsController as blogs" ng-init="blogs.indexBlogs()" >
+<section class="home" ng-controller="BlogsController as blogs" ng-init="blogs.indexBlogs()" >
 	<div class="card" ng-repeat = "blog in blogs.all">
 	  <a class="a" href="">
 	    <img class="photo"  src="{ blog.url }}">

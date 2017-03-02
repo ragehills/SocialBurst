@@ -17,6 +17,10 @@ body{
 nav {
   width: 100vw;
   margin: 10px 0;
+}
+
+.div {
+  margin: 0 auto;
   text-align: center;
 }
  
@@ -24,6 +28,9 @@ nav {
   overflow: auto;
   list-style-type: none;
   text-align: center;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  position: center;
 }
  
 .li {
@@ -323,6 +330,9 @@ li:last-child {
 /*FINISHED*/
 
 /*CARD CSS*/
+.home {
+  margin-top: 10vw;
+}
 .card {
   max-width: 400px;
   width: 100%;
@@ -331,7 +341,8 @@ li:last-child {
   border-radius: 2px;
   box-sizing: border-box;
   box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.1);  
-  padding: 1rem 0;
+  padding: 5vw;
+  margin: 0.2vw;
   padding-top: 0;
   overflow:hidden;
   float: left;

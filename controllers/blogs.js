@@ -61,14 +61,14 @@ function updateBlogs(req, res) {
 		{ runValidators: true },
 		function(err, blog) {
 			if(err) return res.status(500).send(err);
-			res.redirect("/");
+			res.json(blog);
 		}
 	);
 }
 
 function deleteBlogs(req, res) {
-	Blog.findByIdAndRemove(req.params.id , function(err) {
-		res.redirect("/")
+	Blog.findByIdAndRemove(req.params.id , function(err, blog) {
+		res.json(blog)
 	});
 }
 
