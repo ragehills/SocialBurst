@@ -10,7 +10,7 @@ function weathercontroller($http) {
 		self.lat = data.lat;
 		self.lon = data.lon;
 
-		var apiKey = 
+		
 		var openWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + self.lat + "&lon=" + self.lon + "&appid=" +apiKey;
 		
 		$http.get(openWeatherURL).success(function(data) {
@@ -31,7 +31,7 @@ function weathercontroller($http) {
 				break
 				}
 				case "light rain" : {
-					console.log("backgrounds should be working")
+					console.log("backgrounds should be " + self.description)
 					self.weatherBackground = {
 						"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
 						"background-size": "cover"

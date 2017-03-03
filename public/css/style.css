@@ -29,8 +29,8 @@ nav {
   overflow: auto;
   list-style-type: none;
   text-align: center;
-  padding-left: 15vw;
-  padding-right: 15vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
   position: center;
 }
  
@@ -219,6 +219,19 @@ li:last-child {
 }
 
 /* Finnished */
+
+/* tube */
+.left, .right {
+  display: block;
+}
+
+.left {
+
+}
+.right {
+
+}
+/* finished */
 
 /* Twitter */
 
