@@ -49,7 +49,7 @@ function authenticationController(Auth, User, $state) {
 
 	Auth.$onAuthStateChanged(function (user) {
 		self.user = user
-		console.log(user)
+		// console.log(user)
 	})
 
 	function resetCredentials () {

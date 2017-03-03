@@ -16,7 +16,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
                 post: self.newBlog.post
             }
         }).then(function (blog) {
-            console.log(blog)
+            // console.log(blog)
             self.newBlog = {}
             $state.go('my-blogs')
         })
@@ -29,7 +29,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
     self.showBlog = function() {
         Blog.getAll()
         .then(function(res) {
-            console.log(res.data)
+            // console.log(res.data)
             self.all = res.data
             // console.log(self.all)
         })
@@ -44,7 +44,7 @@ function BlogsController (Blog, Auth, $stateParams, $state, $http) {
         var uid = Auth.$getAuth().uid
         Blog.getMyBlogs(uid)
             .then(function(res) {
-                console.log(res.data)
+                // console.log(res.data)
                 self.all = res.data
             })
             .catch(function (err) {

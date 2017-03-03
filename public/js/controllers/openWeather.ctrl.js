@@ -10,7 +10,7 @@ function weathercontroller($http) {
 		self.lat = data.lat;
 		self.lon = data.lon;
 
-		var apiKey = 
+		var apiKey = process.env.open1
 		var openWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + self.lat + "&lon=" + self.lon + "&appid=" +apiKey;
 		
 		$http.get(openWeatherURL).success(function(data) {
@@ -23,31 +23,19 @@ function weathercontroller($http) {
 			self.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 			
 
-			switch(self.description){
-				case "clear sky" : {
-					self.skyClass = 'clear-sky'
-					// self.weatherBackground = {
-					// 	"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
-					// 	"background-size": "cover"
-					// }
-				break
-				}
-				case "light rain" : {
-					// console.log("backgrounds should be " + self.description)
-					self.skyClass = 'light-rain'
-					// self.weatherBackground = {
-					// 	"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
-					// 	"background-size": "cover"
-					// }
-				break
-				}
-				default:
-					self.weatherBackground = {
-						"background": "url(https://unsplash.com/search/weather?photo=RXceAJAo-nw)",
-						"background-size": "cover"
-					}
-				break	
-			}
+			// switch(self.description){
+			// 	case "clear sky" : {
+			// 		self.skyClass = 'clear-sky'
+			// 	break
+			// 	}
+			// 	case "light rain" : {
+			// 		self.skyClass = 'light-rain'
+			// 	break
+			// 	}
+			// 	default:
+			// 		self.skyClass = 'default'
+			// 	break	
+			// }
 		});
 	});
 };

@@ -475,6 +475,11 @@ li:last-child {
   padding: 10px;
 }
 
+.default {
+  background: url(https://unsplash.com/search/weather?photo=RXceAJAo-nw);
+  background-size: cover;
+}
+
 .clear-sky {
   background: url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg);
   background-size: cover;

@@ -1,4 +1,4 @@
-<section class="home1" ng-controller="BlogsController as blogs" ng-init="blogs.showBlog()" >
+<section class="home1" ng-controller="BlogsController as blogs" ng-init="blogs.showBlog()"  ng-style="{{open.skyClass}}">
 	<div class="card" ng-repeat = "blog in blogs.all">
 	  <a class="a" href="">
 	    <img class="photo"  ng-src="{{ blog.url }}">
