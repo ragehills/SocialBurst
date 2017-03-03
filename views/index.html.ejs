@@ -43,7 +43,7 @@
 		</div>
 	</nav>
 	<div ng-controller="weathercontroller as open">
-		<section>
+		<section ng-style="{{open.skyClass}}">
 			<div class="container-fluid home1 text-center">
 				<a class="btn-lg btn-primary">{{open.description | uppercase}} <img ng-src="{{open.icon}}"></a>
 				<a class="btn-lg btn-primary">{{open.speed}}</a>
@@ -53,9 +53,9 @@
 			</div>
 		</section>
 
-	<section class="mainContainer" ui-view ng-controller="MainController">
-		
-	</section>
+		<section class="mainContainer" ui-view ng-controller="MainController">
+			
+		</section>
 	</div>
 </body>
 </html>

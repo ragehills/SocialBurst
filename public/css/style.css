@@ -404,4 +404,17 @@ li:last-child {
 .p:last-of-type {
   margin-bottom: 0;
 }
+
+.Circle {
+  background-color: yellow;
+}
+
+.clear-sky {
+  background: url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg);
+  background-size: cover;
+}
+.light-rain {
+  background: url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg);
+  background-size: cover;
+}
 /*FINISHED*/

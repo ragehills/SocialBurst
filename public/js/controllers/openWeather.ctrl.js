@@ -10,7 +10,7 @@ function weathercontroller($http) {
 		self.lat = data.lat;
 		self.lon = data.lon;
 
-		
+		var apiKey = 
 		var openWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + self.lat + "&lon=" + self.lon + "&appid=" +apiKey;
 		
 		$http.get(openWeatherURL).success(function(data) {
@@ -22,20 +22,23 @@ function weathercontroller($http) {
 			self.cTemp = (self.temp-273).toFixed(1) + " (°C)";
 			self.icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 			
+
 			switch(self.description){
 				case "clear sky" : {
-					self.weatherBackground = {
-						"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
-						"background-size": "cover"
-					}
+					self.skyClass = 'clear-sky'
+					// self.weatherBackground = {
+					// 	"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
+					// 	"background-size": "cover"
+					// }
 				break
 				}
 				case "light rain" : {
-					console.log("backgrounds should be " + self.description)
-					self.weatherBackground = {
-						"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
-						"background-size": "cover"
-					}
+					// console.log("backgrounds should be " + self.description)
+					self.skyClass = 'light-rain'
+					// self.weatherBackground = {
+					// 	"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
+					// 	"background-size": "cover"
+					// }
 				break
 				}
 				default:

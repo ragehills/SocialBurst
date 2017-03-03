@@ -1,8 +1,21 @@
 <div ng-controller="tubecontroller as tube">
 	<div class=left>
-		<p>tube status</p>
-		{{tube.data}}
+
+
+	<section ng-repeat="line in tube.data" ng-class="line.name">
+		<div>{{line.name}}</div>
+		<div>{{line.lineStatuses[0].statusSeverityDescription}}</div>
+		<div ng-if="line.lineStatuses[0].disruption.description">{{line.lineStatuses[0].disruption.description}}
+			<p ng-if="line.lineStatuses[0].disruption.isWholeLine"><em> WHOLE LINE COULD BE IN BAD SHAPE!</em></p>
+		</div>
+
+		<br>
+
+	</section>
+		<br><br><br><br>
+
 	</div>
+	<br><br><br><br>
 	<div class=right>
 		<p>tube map</p>
 	</div>	
