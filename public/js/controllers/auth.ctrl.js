@@ -31,6 +31,15 @@ function authenticationController(Auth, User, $state) {
 				self.error = error 
 
 			})
+		// Auth.$signInWithPopup('twitter')
+		// 	.then(function () {
+		// 		$state.go('home')
+		// 		resetCredentials()
+		// 	})
+		// 	.catch(function (error) {
+		// 		self.error = error 
+
+		// 	})
 	}
 
 	self.signOut = function() {
@@ -40,6 +49,7 @@ function authenticationController(Auth, User, $state) {
 
 	Auth.$onAuthStateChanged(function (user) {
 		self.user = user
+		console.log(user)
 	})
 
 	function resetCredentials () {

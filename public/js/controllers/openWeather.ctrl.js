@@ -30,6 +30,14 @@ function weathercontroller($http) {
 					}
 				break
 				}
+				case "light rain" : {
+					console.log("backgrounds should be working")
+					self.weatherBackground = {
+						"background": "url(https://unsplash.com/search/clear-sky?photo=uivWDK2Ifrg)",
+						"background-size": "cover"
+					}
+				break
+				}
 				default:
 					self.weatherBackground = {
 						"background": "url(https://unsplash.com/search/weather?photo=RXceAJAo-nw)",

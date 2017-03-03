@@ -11,7 +11,7 @@
 <section class="home1" ng-controller="BlogsController as blogs" ng-init="blogs.showBlog()" >
 	<div class="card" ng-repeat = "blog in blogs.all">
 	  <a class="a" href="">
-	    <img class="photo"  src="{ blog.url }}">
+	    <img class="photo"  ng-src="{{ blog.url }}">
 	    <h3 class="title">{{ blog.title }}</h3>    
 	    <div class="description"><p>{{ blog.post }}</p></div>
 	  </a>
