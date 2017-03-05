@@ -4,13 +4,16 @@ var usersController = require('../controllers/users');
 var blogsController = require('../controllers/blogs');
 var commentsController = require('../controllers/comments');
 
-// restuful routes
+// ---restuful routes----
+// routes for users
 
 router.route('/users')
     .post(usersController.create);
 
 router.route('/users/:uid')
 	.delete(usersController.delete);
+
+// routes for blogs
 	
 router.route('/blogs')
 	.get(blogsController.index)
@@ -25,7 +28,7 @@ router.route('/blogs/:id')
 
 
 // custom routes 
-
+// showing a blog specific to a user
 router.route('/my-blogs/:uid')
 	.get(blogsController.getUsersBlogs);
 
