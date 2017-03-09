@@ -2,6 +2,7 @@ var Blog = require('../models/blog.js');
 var Comment = require('../models/Comments.js');
 var User = require('../models/user.js');
 
+// 
 function indexBlogs(req, res) {
 	Blog.find({}, function (err, blog) {
         if (err) {
