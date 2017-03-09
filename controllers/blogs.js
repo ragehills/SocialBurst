@@ -1,5 +1,5 @@
 var Blog = require('../models/blog.js');
-var Comment = require('../models/Comments.js');
+// var Comment = require('../models/Comments.js');
 var User = require('../models/user.js');
 
 // 
